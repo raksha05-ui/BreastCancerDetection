@@ -1023,13 +1023,15 @@ CSS = """
 
   color-scheme: dark;
 
-  --bg: #04101b;
+  --bg: #06131f;
 
-  --surface: rgba(10, 18, 34, 0.96);
+  --panel: rgba(10, 18, 34, 0.92);
 
-  --surface-strong: rgba(15, 23, 42, 0.96);
+  --panel-strong: rgba(15, 23, 42, 0.96);
 
-  --text: #f1f5f9;
+  --card: rgba(15, 23, 42, 0.88);
+
+  --text: #e2e8f0;
 
   --muted: #94a3b8;
 
@@ -1037,65 +1039,259 @@ CSS = """
 
   --accent: #60a5fa;
 
+  --accent-strong: #38bdf8;
+
+  --success: #22c55e;
+
+  --warning: #fbbf24;
+
+  --danger: #f87171;
+
 }
 
 html, body {
 
   min-height: 100%;
 
-  background: radial-gradient(circle at top left, rgba(96,165,250,0.14), transparent 24%),
+  background: radial-gradient(circle at top left, rgba(96,165,250,0.16), transparent 22%),
 
-              radial-gradient(circle at bottom right, rgba(56,189,248,0.10), transparent 20%),
+              radial-gradient(circle at bottom right, rgba(34,197,94,0.08), transparent 18%),
 
-              var(--bg) !important;
+              linear-gradient(180deg, #040c16 0%, #071827 100%) !important;
 
   color: var(--text) !important;
 
+  font-family: "Segoe UI", sans-serif;
+
 }
 
-.gradio-container { background: transparent !important; }
+.gradio-container {
+
+  background: transparent !important;
+
+  max-width: 1400px !important;
+
+  padding: 24px 8px 40px !important;
+
+}
 
 .header {
 
-  background: var(--surface-strong) !important;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(14, 116, 144, 0.22));
 
   border: 1px solid var(--border) !important;
 
-  border-radius: 20px;
+  border-radius: 24px;
 
-  padding: 22px;
+  padding: 22px 24px;
 
   box-shadow: 0 16px 42px rgba(0,0,0,0.28);
+
+  margin-bottom: 18px;
 
 }
 
 .logo-box {
 
-  width: 52px; height: 52px; border-radius: 14px;
+  width: 60px; height: 60px; border-radius: 18px;
 
   display: flex; align-items: center; justify-content: center;
 
-  background: #111827; color: var(--text); font-weight: 800;
+  background: linear-gradient(135deg, rgba(96,165,250,0.28), rgba(56,189,248,0.16));
+
+  border: 1px solid rgba(96,165,250,0.45);
+
+  color: var(--text); font-weight: 800; font-size: 1.4rem;
+
+}
+
+.hero-copy {
+
+  line-height: 1.4;
+
+}
+
+.hero-copy h2 {
+
+  margin: 0;
+
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+
+  font-weight: 800;
+
+}
+
+.hero-copy p {
+
+  margin: 6px 0 0;
+
+  color: var(--muted);
+
+  font-size: 0.98rem;
+
+}
+
+.info-strip {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+
+  gap: 14px;
+
+  margin-top: 18px;
+
+}
+
+.info-card {
+
+  background: rgba(15, 23, 42, 0.82);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  padding: 14px 16px;
+
+}
+
+.info-card .mini-title {
+
+  display: inline-block;
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  color: #7dd3fc;
+
+  margin-bottom: 8px;
+
+}
+
+.info-card .mini-text {
+
+  font-size: 0.93rem;
+
+  color: var(--text);
+
+  line-height: 1.45;
+
+}
+
+.section-card {
+
+  background: rgba(15, 23, 42, 0.82);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  padding: 16px;
+
+  margin-top: 10px;
+
+}
+
+.step-pill {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  background: rgba(96,165,250,0.12);
+
+  border: 1px solid rgba(96,165,250,0.25);
+
+  border-radius: 999px;
+
+  color: #bae6fd;
+
+  padding: 7px 12px;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
 
 }
 
 .verdict-card {
 
-  border-radius: 18px; padding: 22px; text-align: center;
+  position: relative;
 
-  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  padding: 22px 22px 18px;
+
+  text-align: left;
+
+  background: linear-gradient(180deg, rgba(15,23,42,0.88), rgba(15,23,42,0.72));
+
+  box-shadow: 0 18px 36px rgba(2,6,23,0.38), inset 0 1px 0 rgba(255,255,255,0.06);
+
+  border: 1px solid rgba(148,163,184,0.18);
 
 }
 
-.verdict-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+.verdict-card::before {
 
-.verdict-sub { font-size: 0.9rem; opacity: 0.9; }
+  content: "";
 
-.footer-note { text-align:center; margin-top:16px; color: var(--muted); font-size: 0.85rem; }
+  position: absolute;
+
+  inset: 0 0 auto 0;
+
+  height: 4px;
+
+  background: linear-gradient(90deg, rgba(125,211,252,0.9), rgba(59,130,246,0.7), rgba(168,85,247,0.7));
+
+}
+
+.verdict-title {
+
+  font-size: 1.55rem;
+
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  margin-bottom: 10px;
+
+  letter-spacing: -0.02em;
+
+  color: #f8fafc;
+
+}
+
+.verdict-sub {
+
+  font-size: 0.96rem;
+
+  opacity: 0.96;
+
+  line-height: 1.6;
+
+  color: #e2e8f0;
+
+}
+
+.footer-note { text-align:center; margin-top:16px; color: var(--muted); font-size: 0.82rem; }
 
 .quality-card {
 
-  border-radius: 18px; padding: 20px; background: #1e293b;
+  border-radius: 18px; padding: 20px; background: #111827;
+
+  border: 1px solid rgba(148,163,184,0.18);
 
   box-shadow: 0 12px 30px rgba(0,0,0,0.25); margin-top: 16px;
 
@@ -1126,6 +1322,397 @@ html, body {
   margin-top: 12px; font-size: 0.78rem; color: #fbbf24; opacity: 0.9;
 
   border-top: 1px solid #334155; padding-top: 10px;
+
+}
+
+.gr-button-primary,
+#analyze_btn,
+#mammo_action_btn,
+#mri_action_btn {
+
+  display: block !important;
+
+  width: 100% !important;
+
+  background: linear-gradient(135deg, #2563eb 0%, #38bdf8 100%) !important;
+
+  border: 1px solid rgba(255,255,255,0.10) !important;
+
+  border-radius: 14px !important;
+
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.24), inset 0 1px 0 rgba(255,255,255,0.18) !important;
+
+  font-weight: 800 !important;
+
+  font-size: 1.05rem !important;
+
+  letter-spacing: 0.01em !important;
+
+  min-height: 58px !important;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+
+}
+
+.gr-button-primary:hover,
+#analyze_btn:hover,
+#mammo_action_btn:hover,
+#mri_action_btn:hover {
+
+  transform: translateY(-1px) !important;
+
+  box-shadow: 0 15px 28px rgba(37, 99, 235, 0.32), inset 0 1px 0 rgba(255,255,255,0.20) !important;
+
+}
+
+.gr-button-secondary {
+
+  background: rgba(15, 23, 42, 0.82) !important;
+
+  border: 1px solid rgba(148,163,184,0.25) !important;
+
+}
+
+.tip-box {
+
+  margin-top: 12px;
+
+  background: linear-gradient(135deg, rgba(96,165,250,0.10), rgba(20,184,166,0.07));
+
+  border: 1px solid rgba(96,165,250,0.24);
+
+  border-radius: 12px;
+
+  padding: 10px 12px;
+
+  color: #dbeafe;
+
+  font-size: 0.81rem;
+
+  line-height: 1.5;
+
+}
+
+.upload-panel {
+
+  background: rgba(15, 23, 42, 0.74);
+
+  border: 1px solid rgba(148, 163, 184, 0.2);
+
+  border-radius: 16px;
+
+  padding: 8px;
+
+}
+
+.page-shell {
+
+  background: rgba(15, 23, 42, 0.72);
+
+  border: 1px solid rgba(148,163,184,0.16);
+
+  border-radius: 22px;
+
+  padding: 18px;
+
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 18px 32px rgba(2,6,23,0.28);
+
+}
+
+.dashboard-shell {
+
+  display: grid;
+
+  grid-template-columns: 1.2fr 1.5fr;
+
+  gap: 14px;
+
+  margin-top: 6px;
+
+}
+
+.side-panel,
+.insight-card {
+
+  background: rgba(15, 23, 42, 0.72);
+
+  border: 1px solid rgba(148,163,184,0.16);
+
+  border-radius: 18px;
+
+  padding: 16px;
+
+}
+
+.assist-badge {
+
+  display: inline-block;
+
+  background: rgba(14,165,233,0.12);
+
+  border: 1px solid rgba(125,211,252,0.25);
+
+  border-radius: 999px;
+
+  padding: 6px 10px;
+
+  color: #bae6fd;
+
+  font-size: 0.72rem;
+
+  letter-spacing: 0.07em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 10px;
+
+  font-weight: 700;
+
+}
+
+.panel-note {
+
+  margin-top: 8px;
+
+  color: #cbd5e1;
+
+  font-size: 0.85rem;
+
+  line-height: 1.6;
+
+}
+
+.stat-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(80px, 1fr));
+
+  gap: 10px;
+
+  margin-top: 14px;
+
+}
+
+.stat-pill {
+
+  background: rgba(15, 23, 42, 0.9);
+
+  border: 1px solid rgba(148,163,184,0.16);
+
+  border-radius: 12px;
+
+  padding: 12px 10px;
+
+  text-align: center;
+
+}
+
+.stat-pill .stat-number {
+
+  font-size: 1.1rem;
+
+  font-weight: 800;
+
+  color: #f8fafc;
+
+}
+
+.stat-pill .stat-label {
+
+  font-size: 0.68rem;
+
+  color: #94a3b8;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  margin-top: 4px;
+
+}
+
+.how-it-works {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+
+  gap: 12px;
+
+  margin: 18px 0 10px;
+
+}
+
+.how-card {
+
+  background: rgba(15, 23, 42, 0.74);
+
+  border: 1px solid rgba(148,163,184,0.18);
+
+  border-radius: 16px;
+
+  padding: 14px 12px;
+
+}
+
+.how-card .step-index {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 28px;
+
+  height: 28px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, rgba(96,165,250,0.18), rgba(56,189,248,0.12));
+
+  border: 1px solid rgba(125,211,252,0.25);
+
+  color: #bae6fd;
+
+  font-weight: 800;
+
+  margin-bottom: 8px;
+
+}
+
+.how-card .step-title {
+
+  font-size: 0.82rem;
+
+  font-weight: 800;
+
+  color: #e2e8f0;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 6px;
+
+}
+
+.how-card .step-body {
+
+  font-size: 0.85rem;
+
+  color: #cbd5e1;
+
+  line-height: 1.5;
+
+}
+
+.status-row {
+
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-top: 18px;
+
+}
+
+.status-pill {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(148,163,184,0.2);
+
+  background: rgba(15, 23, 42, 0.74);
+
+  color: #e2e8f0;
+
+  font-size: 0.76rem;
+
+  font-weight: 700;
+
+}
+
+.status-pill .dot {
+
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #38bdf8;
+
+  box-shadow: 0 0 10px rgba(56,189,248,0.7);
+
+}
+
+#image_input, #mammo_image_input, #mri_image_input {
+
+  border-radius: 14px !important;
+
+}
+
+.gradio-image .image-container {
+
+  border-radius: 14px !important;
+
+  border: 1px solid rgba(96,165,250,0.2) !important;
+
+}
+
+.gradio-container .tabitem {
+
+  border-radius: 16px !important;
+
+}
+
+.gradio-container .tab-nav {
+
+  border-bottom: 1px solid rgba(148,163,184,0.18) !important;
+
+}
+
+.gradio-container button[role="tab"],
+.gradio-container .tabitem button {
+
+  border-radius: 12px 12px 0 0 !important;
+
+  color: #cbd5e1 !important;
+
+  background: rgba(15, 23, 42, 0.82) !important;
+
+  border: 1px solid rgba(148,163,184,0.15) !important;
+
+}
+
+.gradio-container button[role="tab"][aria-selected="true"],
+.gradio-container .tabitem button[aria-selected="true"] {
+
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(56,189,248,0.12)) !important;
+
+  border-color: rgba(96,165,250,0.35) !important;
+
+  color: #e0f2fe !important;
+
+}
+
+.gradio-container .upload-box {
+
+  border: 1px solid rgba(96,165,250,0.2) !important;
+
+  box-shadow: inset 0 0 0 1px rgba(96,165,250,0.08) !important;
 
 }
 
@@ -1227,13 +1814,15 @@ def analyze(image, show_explanation):
 
     verdict_html = f"""
 
-    <div class="verdict-card" style="background:{color};">
+    <div class="verdict-card" style="background:linear-gradient(135deg, {color}, rgba(15,23,42,0.92)); border:1px solid rgba(255,255,255,0.06);">
 
-      <div class="verdict-title">AI Screening Result: {assessment}</div>
+      <div class="assist-badge" style="background:rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color:#f8fafc; margin-bottom:12px;">Screening result</div>
 
-      <div class="verdict-sub">Model probability &nbsp;•&nbsp; Benign: {benign_prob*100:.1f}% &nbsp;•&nbsp; Malignant: {malignant_prob*100:.1f}%</div>
+      <div class="verdict-title">{assessment}</div>
 
-      <div class="verdict-sub" style="margin-top:6px;">{interpretation}</div>
+      <div class="verdict-sub">Benign: <strong>{benign_prob*100:.1f}%</strong> &nbsp;•&nbsp; Malignant: <strong>{malignant_prob*100:.1f}%</strong></div>
+
+      <div class="verdict-sub" style="margin-top:8px;">{interpretation}</div>
 
       {uncertainty_html}
 
@@ -1260,20 +1849,35 @@ with gr.Blocks(title="Breast Screening Assistant") as demo:
 
         <div class="header">
 
-          <div style="display:flex;align-items:center;gap:16px;">
+          <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
 
             <div class="logo-box">BC</div>
 
-            <div>
+            <div class="hero-copy">
 
-              <div style="font-size:1.5rem;font-weight:800;">Breast Screening Assistant</div>
+              <h2>Breast Screening Assistant</h2>
 
-              <div style="color:#94a3b8;margin-top:4px;">
+              <p>Upload a breast ultrasound image and get a quick screening result in a few seconds.</p>
 
-                Upload a breast ultrasound image to get a quick screening verdict.
+            </div>
 
-              </div>
+          </div>
 
+          <div class="info-strip">
+
+            <div class="info-card">
+              <div class="mini-title">Step 1</div>
+              <div class="mini-text">Choose a clear breast ultrasound image from your device.</div>
+            </div>
+
+            <div class="info-card">
+              <div class="mini-title">Step 2</div>
+              <div class="mini-text">Click analyze to review the model result and image quality check.</div>
+            </div>
+
+            <div class="info-card">
+              <div class="mini-title">Step 3</div>
+              <div class="mini-text">Download the report for record keeping and show it to a clinician.</div>
             </div>
 
           </div>
@@ -1287,11 +1891,84 @@ with gr.Blocks(title="Breast Screening Assistant") as demo:
 
      with gr.Tab("Breast Ultrasound Screening"):
 
-      with gr.Row():
+      gr.HTML(
+          """
+          <div class="page-shell">
+            <div class="dashboard-shell">
+              <div class="side-panel">
+                <div class="assist-badge">Quick start</div>
+                <div class="panel-note">
+                  This tool is designed for educational use and should be treated as a support aid, not a diagnosis. Please upload a breast ultrasound image that is clear, centered, and not blurry.
+                </div>
+                <div class="status-row">
+                  <div class="status-pill"><span class="dot"></span>AI model ready</div>
+                  <div class="status-pill"><span class="dot"></span>Image quality check</div>
+                  <div class="status-pill"><span class="dot"></span>Downloadable report</div>
+                </div>
+              </div>
+
+              <div class="insight-card">
+                <div class="assist-badge" style="margin-bottom:12px;">Overview</div>
+                <div class="stat-grid">
+                  <div class="stat-pill">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Steps</div>
+                  </div>
+                  <div class="stat-pill">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Upload</div>
+                  </div>
+                  <div class="stat-pill">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Report</div>
+                  </div>
+                </div>
+                <div class="panel-note" style="margin-top:14px;">
+                  Use a clear, properly centered image for the most reliable screening support. The app also checks whether the image quality is suitable before producing a result.
+                </div>
+              </div>
+            </div>
+
+            <div class="how-it-works">
+              <div class="how-card">
+                <div class="step-index">1</div>
+                <div class="step-title">Upload</div>
+                <div class="step-body">Choose a breast ultrasound image from your device.</div>
+              </div>
+              <div class="how-card">
+                <div class="step-index">2</div>
+                <div class="step-title">Analyze</div>
+                <div class="step-body">Click analyze to review the result and image quality check.</div>
+              </div>
+              <div class="how-card">
+                <div class="step-index">3</div>
+                <div class="step-title">Review</div>
+                <div class="step-body">Download the report and discuss the findings with a clinician.</div>
+              </div>
+            </div>
+          </div>
+          """
+      )
+
+      with gr.Row(equal_height=False):
 
         with gr.Column(scale=1):
 
-            image_input = gr.Image(label="Ultrasound image", type="numpy")
+            image_input = gr.Image(
+                label="Upload ultrasound image",
+                type="numpy",
+                show_label=True,
+                height=360,
+                container=True,
+            )
+
+            gr.HTML(
+                """
+                <div class="tip-box">
+                  Tip: use a clear breast ultrasound image that is centered and not blurry. Poor image quality may reduce the reliability of the result.
+                </div>
+                """
+            )
 
             show_explanation = gr.Checkbox(
                 label="Show visual explanation (highlighted regions)",
@@ -1299,7 +1976,7 @@ with gr.Blocks(title="Breast Screening Assistant") as demo:
                 visible=False,
             )
 
-            analyze_btn = gr.Button("Analyze", variant="primary")
+            analyze_btn = gr.Button("Analyze image", variant="primary", elem_id="analyze_btn")
 
             model_status = (
                 "Using trained CNN model (model_cnn.pt)."
@@ -1308,13 +1985,13 @@ with gr.Blocks(title="Breast Screening Assistant") as demo:
                      "Add model_cnn.pt next to main.py for real predictions."
             )
 
-            gr.HTML(f"<div style='color:#94a3b8;font-size:0.85rem;margin-top:4px;'>{model_status}</div>")
+            gr.HTML(f"<div style='color:#94a3b8;font-size:0.85rem;margin-top:8px;line-height:1.5;'>{model_status}</div>")
 
         with gr.Column(scale=1):
 
             verdict_out = gr.HTML()
 
-            with gr.Row():
+            with gr.Row(equal_height=False):
 
                 hist_out = gr.Image(label="Intensity histogram", show_label=True)
 
@@ -1324,6 +2001,14 @@ with gr.Blocks(title="Breast Screening Assistant") as demo:
 
             quality_out = gr.HTML()
 
+            gr.HTML(
+                """
+                <div class="panel-note">
+                  The result includes a quick image quality check and a downloadable report for review.
+                </div>
+                """
+            )
+
      with gr.Tab("Mammography Analysis"):
 
       with gr.Row():
@@ -1332,7 +2017,7 @@ with gr.Blocks(title="Breast Screening Assistant") as demo:
 
             mammo_image_input = gr.Image(label="Mammogram image", type="numpy")
 
-            mammo_analyze_btn = gr.Button("Analyze Mammogram", variant="primary")
+            mammo_analyze_btn = gr.Button("Analyze Mammogram", variant="primary", elem_id="mammo_action_btn")
 
             gr.HTML(
                 f"<div style='color:#94a3b8;font-size:0.85rem;margin-top:4px;'>"
@@ -1368,7 +2053,7 @@ with gr.Blocks(title="Breast Screening Assistant") as demo:
 
             mri_image_input = gr.Image(label="Breast MRI image", type="numpy")
 
-            mri_analyze_btn = gr.Button("Analyze MRI", variant="primary")
+            mri_analyze_btn = gr.Button("Analyze MRI", variant="primary", elem_id="mri_action_btn")
 
             gr.HTML(
                 f"<div style='color:#94a3b8;font-size:0.85rem;margin-top:4px;'>"

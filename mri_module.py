@@ -392,10 +392,11 @@ def build_mri_result_html(result: dict) -> str:
         badge_color = "#334155"
 
     return f"""
-    <div class="verdict-card" style="background:{badge_color};">
-      <div class="verdict-title">Breast MRI Result: {label}</div>
+    <div class="verdict-card" style="background:linear-gradient(135deg, {badge_color}, rgba(15,23,42,0.92)); border:1px solid rgba(255,255,255,0.06); box-shadow: 0 18px 36px rgba(2,6,23,0.38), inset 0 1px 0 rgba(255,255,255,0.06);">
+      <div class="assist-badge" style="background:rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color:#f8fafc; margin-bottom:12px;">MRI result</div>
+      <div class="verdict-title">{label}</div>
       {confidence_html}
-      <div class="verdict-sub" style="margin-top:6px;">{detail}</div>
+      <div class="verdict-sub" style="margin-top:8px;">{detail}</div>
       <div class="verdict-sub" style="margin-top:10px;font-size:0.8rem;opacity:0.85;">
         AI-generated result for educational/research purposes only.
         This is not a medical diagnosis.
